@@ -11,29 +11,16 @@
  */
 class Solution {
 public:
-   vector<int> inorderTraversal(TreeNode* root) {
-        vector<int> ans; 
-        if(!root)
-            return ans;
-        stack<TreeNode *> s;
-        s.push(root);
-        while(!s.empty()){
-		//go till left most of current root but keep pushing nodes in between to process later
-            while(root->left){
-                s.push(root->left);
-                root=root->left;
-            }
-            //print Node 
-            TreeNode* toPrint=s.top();
-            ans.push_back(toPrint->val);
-            s.pop();
-			// GO to immediate right child of freshly printed Node and make it root to process right subtree 
-            if(toPrint->right)
-            {
-                s.push(toPrint->right);
-                root=toPrint->right;
-            }
+    void inorder(TreeNode* root, vector<int> &res){
+        if(root!=NULL){
+            inorder(root->left, res);
+            res.push_back(root->val);
+            inorder(root->right,res);
         }
-        return ans;
+    }
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int>res;
+        inorder(root, res);
+        return res;
     }
 };
