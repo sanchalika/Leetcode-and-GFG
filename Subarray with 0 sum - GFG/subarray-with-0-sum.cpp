@@ -23,18 +23,18 @@ class Solution{
 //     }
 //     return false;
 //     }
-bool subArrayExists(int arr[], int N)
-    {
-//Your code here
-    unordered_set<int> us;
-    int sum = 0;
-    for(int i = 0; i < N; i++){
-        sum += arr[i];
-        if(us.find(sum) != us.end() || arr[i] == 0 || sum == 0) return true;
-        us.insert(sum);
+bool subArrayExists(int arr[], int n)
+{
+    unordered_set<int> set;
+    set.insert(0);
+    int curr = 0;
+    for (int i = 0; i < n; i++){
+        curr += arr[i];
+        if (set.count(curr)) return true;
+        set.insert(curr);
     }
     return false;
-    }
+}
 };
 
 // { Driver Code Starts.
