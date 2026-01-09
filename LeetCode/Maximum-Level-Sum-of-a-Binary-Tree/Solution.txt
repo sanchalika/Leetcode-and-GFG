@@ -1,0 +1,53 @@
+1/**
+2 * Definition for a binary tree node.
+3 * struct TreeNode {
+4 *     int val;
+5 *     TreeNode *left;
+6 *     TreeNode *right;
+7 *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+8 *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+9 *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+10 * };
+11 */
+12class Solution {
+13public:
+14    int maxLevelSum(TreeNode* root) {
+15        int maxSum = INT_MIN;
+16        int resultLevel = 0;
+17        int currLevel = 1;
+18        
+19        queue<TreeNode*> que;
+20        que.push(root);
+21        
+22        
+23        while(!que.empty()) {
+24
+25            int n = que.size();
+26            
+27            int sum = 0;
+28            
+29            while(n--) {
+30                
+31                TreeNode* node = que.front();
+32                que.pop();
+33                
+34                sum += node->val;
+35                
+36                if(node->left)
+37                    que.push(node->left);
+38                
+39                if(node->right)
+40                    que.push(node->right);
+41            }
+42            
+43            if(sum > maxSum) {
+44                maxSum = sum;
+45                resultLevel = currLevel;
+46            }
+47            currLevel++;
+48        }
+49        
+50        return resultLevel;
+51        
+52    }
+53};
