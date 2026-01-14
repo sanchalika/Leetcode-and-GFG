@@ -1,0 +1,1 @@
+Total Good Strings = 5^E * 4^O
