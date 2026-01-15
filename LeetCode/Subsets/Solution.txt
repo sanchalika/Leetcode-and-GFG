@@ -1,0 +1,21 @@
+1class Solution {
+2public:
+3    void solve(vector<int> nums, vector<int> op, vector<vector<int>> &m) {
+4        if (nums.size() == 0) {
+5            m.push_back(op);
+6            return;
+7        }
+8        vector<int> op1 = op;
+9        vector<int> op2 = op;
+10        op2.push_back(nums[0]);
+11        nums.erase(nums.begin() + 0);
+12        solve(nums, op1, m);
+13        solve(nums, op2, m);
+14    }
+15    vector<vector<int>> subsets(vector<int>& nums) {
+16        vector<vector<int>> m;
+17        vector<int> op;
+18        solve(nums, op, m);
+19        return m;
+20    }
+21};
