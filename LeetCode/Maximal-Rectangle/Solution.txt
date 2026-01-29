@@ -1,0 +1,45 @@
+1class Solution {
+2public:
+3    int maximalRectangle(vector<vector<char>>& matrix) {
+4        int m=matrix.size(),n=matrix[0].size(),res=0;
+5        vector<vector<int>> vec(m,vector<int>(n));
+6        for(int i=0;i<m;i++){
+7            for(int j=0;j<n;j++){
+8                if(matrix[i][j]=='0'){
+9                    vec[i][j]=0;
+10                }
+11                else if(i==0){
+12                    vec[i][j]=1;
+13                }
+14                else{
+15                    vec[i][j]=vec[i-1][j]+1;
+16                }
+17            }
+18        }
+19        for(int i=0;i<m;i++){
+20            stack<int> stk;
+21            vector<int> nexts(n,n);
+22            for(int j=0;j<n;j++){
+23                while(!stk.empty() && vec[i][j]<vec[i][stk.top()]){
+24                    nexts[stk.top()]=j;
+25                    stk.pop();
+26                }
+27                stk.push(j);
+28            }
+29            while(!stk.empty()) stk.pop();
+30            vector<int> prevs(n,-1);
+31            for(int j=n-1;j>=0;j--){
+32                while(!stk.empty() && vec[i][j]<vec[i][stk.top()]){
+33                    prevs[stk.top()]=j;
+34                    stk.pop();
+35                }
+36                stk.push(j);
+37            }
+38            for(int j=0;j<n;j++){
+39                int area=vec[i][j]*(nexts[j]-prevs[j]-1);
+40                res=max(res,area);
+41            }
+42        }
+43        return res;
+44    }
+45};
