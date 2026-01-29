@@ -1,0 +1,28 @@
+1class Solution {
+2public:
+3    long long minimumCost(string source, string target, vector<char>& original, vector<char>& changed, vector<int>& cost) {
+4        vector<vector<int>> mincost(26,vector<int>(26,INT_MAX/2));
+5        for(int i=0;i<26;i++){
+6            mincost[i][i]=0;
+7        }
+8        for(int i=0;i<original.size();i++){
+9            mincost[original[i]-'a'][changed[i]-'a']=min(mincost[original[i]-'a'][changed[i]-'a'],cost[i]);
+10        }
+11        for(int k=0;k<26;k++){
+12            for(int i=0;i<26;i++){
+13                for(int j=0;j<26;j++){
+14                    mincost[i][j]=min(mincost[i][j],mincost[i][k]+mincost[k][j]);
+15                }
+16            }
+17        }
+18        long long res=0;
+19        for(int i=0;i<source.length();i++){
+20            int c = mincost[source[i]-'a'][target[i]-'a'];
+21            if(c==INT_MAX/2){
+22                return -1;
+23            }
+24            res+=c;
+25        }
+26        return res;
+27    }
+28};
