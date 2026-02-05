@@ -1,0 +1,17 @@
+1class Solution {
+2public:
+3    vector<int> constructTransformedArray(vector<int>& nums) {
+4        int n=nums.size();
+5        vector<int>result(n);
+6        for(int i=0; i<n; i++){
+7            if(nums[i]==0){
+8                result[i]=nums[i];
+9            }else{
+10                int idx=(i+nums[i])%n;
+11                if(idx<0) idx+=n;
+12                result[i]=nums[idx];
+13            }
+14        }
+15        return result;
+16    }
+17};
