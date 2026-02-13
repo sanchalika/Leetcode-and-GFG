@@ -1,0 +1,26 @@
+1class Solution {
+2public:
+3    void sortColors(vector<int>& nums) {
+4        int red=0, white=0, blue=0;
+5        for(int i=0; i<nums.size();i++){
+6            if(nums[i]==0){
+7                red++;
+8            }
+9            else if(nums[i]==1){
+10                white++;
+11            }
+12            else{
+13                blue++;
+14            }
+15        }
+16        for(int i=0; i<red;i++){
+17            nums[i]=0;
+18        }
+19        for(int i=red; i<(red+white);i++){
+20            nums[i]=1;
+21        }
+22        for(int i=(red+white); i<nums.size();i++){
+23            nums[i]=2;
+24        }
+25    }
+26};
