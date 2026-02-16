@@ -1,0 +1,19 @@
+1class Solution {
+2public:
+3    vector<int> rearrangeArray(vector<int>& nums) {
+4        int n = nums.size();
+5        vector<int>pos, neg, ans;
+6        for(int i=0; i<n; i++){
+7            if(nums[i]>0){
+8                pos.push_back(nums[i]);
+9            }else{
+10                neg.push_back(nums[i]);
+11            }
+12        }
+13        for(int i=0; i<neg.size(); i++){
+14            ans.push_back(pos[i]);
+15            ans.push_back(neg[i]);
+16        }
+17        return ans;
+18    }
+19};
