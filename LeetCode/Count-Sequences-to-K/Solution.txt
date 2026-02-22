@@ -1,0 +1,23 @@
+1from fractions import Fraction
+2class Solution:
+3    def countSequences(self, nums: List[int], k: int) -> int:
+4        n = len(nums)
+5        
+6        @lru_cache(None)
+7        def f(ind, val):
+8            if ind == n:
+9                if val == k:
+10                    return 1
+11                return 0
+12
+13            ans = 0
+14            ans += f(ind + 1, val * nums[ind])
+15            ans += f(ind + 1, val / nums[ind])
+16            ans += f(ind + 1, val)
+17
+18            return ans
+19
+20        return f(0, Fraction(1))
+21                
+22            
+23        
