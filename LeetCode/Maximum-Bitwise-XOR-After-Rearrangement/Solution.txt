@@ -1,0 +1,37 @@
+1class Solution {
+2public:
+3    string maximumXor(string s, string t) {
+4        int n = s.size();      
+5        int count0 = 0, count1 = 0;
+6        // Count bits in t
+7        for (char c : t) {
+8            if (c == '0') count0++;
+9            else count1++;
+10        }
+11        string result = "";
+12        for (int i = 0; i < n; i++) {
+13
+14            if (s[i] == '0') {
+15                // We want t[i] = 1 to get XOR = 1
+16                if (count1 > 0) {
+17                    result += '1';
+18                    count1--;
+19                } else {
+20                    result += '0';
+21                    count0--;
+22                }
+23            } 
+24            else { // s[i] == '1'
+25                // We want t[i] = 0 to get XOR = 1
+26                if (count0 > 0) {
+27                    result += '1';
+28                    count0--;
+29                } else {
+30                    result += '0';
+31                    count1--;
+32                }
+33            }
+34        }
+35        return result;
+36    }
+37};
