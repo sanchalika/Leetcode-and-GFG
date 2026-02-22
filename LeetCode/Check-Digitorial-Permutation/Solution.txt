@@ -1,0 +1,43 @@
+1class Solution {
+2public:
+3    bool isDigitorialPermutation(int n) {
+4        int mid = n;
+5        vector<int> fact(10, 1);
+6        for (int i = 1; i <= 9; i++) {
+7            fact[i] = fact[i - 1] * i;
+8        }
+9        int sum = 0;
+10        int temp = mid;
+11        if (temp == 0) {
+12            sum = fact[0];
+13        } else {
+14            while (temp > 0) {
+15                int digit = temp % 10;
+16                sum += fact[digit];
+17                temp /= 10;
+18            }
+19        }
+20        vector<int> freqN(10, 0);
+21        temp = mid;
+22
+23        if (temp == 0) {
+24            freqN[0]++;
+25        } else {
+26            while (temp > 0) {
+27                freqN[temp % 10]++;
+28                temp /= 10;
+29            }
+30        }
+31        vector<int> freqS(10, 0);
+32        temp = sum;
+33        if (temp == 0) {
+34            freqS[0]++;
+35        } else {
+36            while (temp > 0) {
+37                freqS[temp % 10]++;
+38                temp /= 10;
+39            }
+40        }
+41        return freqN == freqS;
+42    }
+43};
