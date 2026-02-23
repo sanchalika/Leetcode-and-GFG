@@ -1,28 +1,21 @@
 1class Solution {
 2public:
 3    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
-4        vector<int>merged;
-5        int i=0, j=0;
-6        while(i<m && j<n){
-7            if(nums1[i]<=nums2[j]){
-8                merged.push_back(nums1[i]);
-9                i++;
-10            }
-11            else{
-12                merged.push_back(nums2[j]);
-13                j++;
-14            }
-15        }
-16        while(i<m){
-17           merged.push_back(nums1[i]);
-18           i++; 
+4        int left = m - 1;
+5        int right = 0;
+6        while (left >= 0 && right < n) {
+7            if (nums1[left] > nums2[right]) {
+8                swap(nums1[left], nums2[right]);
+9                left--;
+10                right++;
+11            } else {
+12                break;
+13            }
+14        }
+15        sort(nums1.begin(), nums1.begin() + m);
+16        sort(nums2.begin(), nums2.begin() + n);
+17        for (int i = 0; i < n; i++) {
+18            nums1[m + i] = nums2[i];
 19        }
-20        while(j<n){
-21           merged.push_back(nums2[j]);
-22           j++; 
-23        }
-24        for(int k=0; k<m+n;k++){
-25            nums1[k]=merged[k];
-26        }
-27    }
-28};
+20    }
+21};
