@@ -4,16 +4,17 @@
 4        int low = 1;
 5        int high = x;
 6        int ans = 1;
-7        if(x==0) return 0;
-8        while (low <= high) {
-9            int mid = low + (high - low) / 2;
-10            if (mid <= x/mid) {
-11                ans = mid;
-12                low = mid + 1;
-13            } else {
-14                high = mid - 1;
-15            }
-16        }
-17        return ans;
-18    }
-19};
+7        if (x == 0)
+8            return 0;
+9        while (low <= high) {
+10            int mid = low + (high - low) / 2;
+11            if (mid <= x / mid) {
+12                ans = mid;
+13                low = mid + 1;
+14            } else {
+15                high = mid - 1;
+16            }
+17        }
+18        return ans;
+19    }
+20};
