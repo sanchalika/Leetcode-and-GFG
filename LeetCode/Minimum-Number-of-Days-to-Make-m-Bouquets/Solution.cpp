@@ -35,7 +35,7 @@
 35    }
 36    int minDays(vector<int>& bloomDay, int m, int k) {
 37        long long n = bloomDay.size();
-38        if (n < (1LL*m * 1LL*k))
+38        if (n < (1LL * m * 1LL * k))
 39            return -1;
 40        int low = findMini(bloomDay, n);
 41        int high = findMax(bloomDay, n);
