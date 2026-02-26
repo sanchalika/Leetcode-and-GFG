@@ -7,36 +7,30 @@
 7        }
 8        return maxi;
 9    }
-10    int findMini(vector<int>& bloomDay, int n) {
-11        int mini = INT_MAX;
-12        for (int i = 0; i < n; i++) {
-13            mini = min(mini, bloomDay[i]);
-14        }
-15        return mini;
-16    }
-17    bool isDivisor(vector<int>& nums, int divisor, int threshold) {
-18        int n = nums.size();
-19        int ans = 0;
-20        for (int i = 0; i < n; i++) {
-21            ans += ceil((double)nums[i] / divisor);;
-22            if (ans > threshold) {
-23                return false;
-24            } 
-25        }
-26        return true;
-27    }
-28    int smallestDivisor(vector<int>& nums, int threshold) {
-29        int n = nums.size();
-30        int low = 1;
-31        int high = findMax(nums, n);
-32        while (low <= high) {
-33            int mid = low + (high - low) / 2;
-34            if (isDivisor(nums, mid, threshold)) {
-35                high = mid - 1;
-36            } else {
-37                low = mid + 1;
-38            }
-39        }
-40        return low;
-41    }
-42};
+10    bool isDivisor(vector<int>& nums, int divisor, int threshold) {
+11        int n = nums.size();
+12        int ans = 0;
+13        for (int i = 0; i < n; i++) {
+14            ans += ceil((double)nums[i] / divisor);
+15            ;
+16            if (ans > threshold) {
+17                return false;
+18            }
+19        }
+20        return true;
+21    }
+22    int smallestDivisor(vector<int>& nums, int threshold) {
+23        int n = nums.size();
+24        int low = 1;
+25        int high = findMax(nums, n);
+26        while (low <= high) {
+27            int mid = low + (high - low) / 2;
+28            if (isDivisor(nums, mid, threshold)) {
+29                high = mid - 1;
+30            } else {
+31                low = mid + 1;
+32            }
+33        }
+34        return low;
+35    }
+36};
