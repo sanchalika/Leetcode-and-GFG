@@ -1,0 +1,24 @@
+1class Solution {
+2public:
+3    vector<int> minDistinctFreqPair(vector<int>& nums) {
+4        int n = nums.size();
+5        unordered_map<int, int> mpp;
+6        for (int i = 0; i < n; i++) {
+7            mpp[nums[i]]++;
+8        }
+9        vector<int> unique;
+10        for (auto& it : mpp) {
+11            unique.push_back(it.first);
+12        }
+13        sort(unique.begin(), unique.end());
+14        int m = unique.size();
+15        for (int i = 0; i < m; i++) {
+16            for (int j = i + 1; j < m; j++) {
+17                if (mpp[unique[i]] != mpp[unique[j]]) {
+18                    return {unique[i], unique[j]};
+19                }
+20            }
+21        }
+22        return {-1, -1};
+23    }
+24};
