@@ -1,0 +1,69 @@
+1class LRUCache {
+2    class Node {
+3        int key;
+4        int val;
+5        Node prev, next;
+6
+7        Node(int key, int val) {
+8            this.key = key;
+9            this.val = val;
+10            this.prev = null;
+11            this.next = null;
+12        }
+13    }
+14
+15    Map<Integer, Node> map = new HashMap<>();
+16    Node head = new Node(0, 0);
+17    Node tail = new Node(0, 0);
+18    private int capacity;
+19
+20    public LRUCache(int capacity) {
+21        this.capacity = capacity;
+22        head.next = tail;
+23        tail.prev = head;
+24    }
+25
+26    public int get(int key) {
+27        if (map.containsKey(key)) {
+28            int res = map.get(key).val;
+29            delNode(key);
+30            insertNode(key, res);
+31            return res;
+32        }
+33        return -1;
+34    }
+35
+36    public void put(int key, int value) {
+37        if (map.containsKey(key)) {
+38            delNode(key);
+39            insertNode(key, value);
+40        }
+41
+42        else if (capacity == map.size()) {
+43            delNode(tail.prev.key);
+44            insertNode(key, value);
+45        }
+46
+47        else {
+48            insertNode(key, value);
+49        }
+50    }
+51
+52    public void insertNode(int key, int val) {
+53        Node temp = new Node(key, val);
+54        temp.next = head.next;
+55        head.next.prev = temp;
+56        temp.prev = head;
+57        head.next = temp;
+58        map.put(key, temp);
+59    }
+60
+61    public void delNode(int key) {
+62        Node node = map.get(key);
+63        node.prev.next = node.next;
+64        node.next.prev = node.prev;
+65        node.next = null;
+66        node.prev = null;
+67        map.remove(key);
+68    }
+69}
