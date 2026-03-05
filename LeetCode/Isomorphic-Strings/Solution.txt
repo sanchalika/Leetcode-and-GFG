@@ -1,0 +1,19 @@
+1class Solution {
+2public:
+3    bool isIsomorphic(string s, string t) {
+4        unordered_map<char, int> charST;
+5        unordered_map<char, int> charTS;
+6        for (int i = 0; i < s.length(); i++) {
+7            if (charST.find(s[i]) == charST.end()) {
+8                charST[s[i]] = i;
+9            }
+10            if (charTS.find(t[i]) == charTS.end()) {
+11                charTS[t[i]] = i;
+12            }
+13            if (charST[s[i]] != charTS[t[i]]) {
+14                return false;
+15            }
+16        }
+17        return true;
+18    }
+19};
