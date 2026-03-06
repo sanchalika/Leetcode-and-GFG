@@ -1,0 +1,17 @@
+1class Solution {
+2public:
+3    string frequencySort(string s) {
+4        int n = s.length();
+5        unordered_map<char, int> mpp;
+6        for (int i = 0; i < n; i++) {
+7            mpp[s[i]]++;
+8        }
+9        auto cmp = [&](char a, char b) {
+10            if (mpp[a] == mpp[b])
+11                return a < b;
+12            return mpp[a] > mpp[b];
+13        };
+14        sort(s.begin(), s.end(), cmp);
+15        return s;
+16    }
+17};
