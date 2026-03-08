@@ -1,0 +1,22 @@
+1class Solution {
+2    public int beautySum(String s) {
+3        int n = s.length();
+4        int res = 0;
+5        for (int i = 0; i < n; i++) {
+6            int[] freq = new int[26];
+7            for (int j = i; j < n; j++) {
+8                freq[s.charAt(j) - 'a']++;
+9                int maxFreq = 0;
+10                int minFreq = Integer.MAX_VALUE;
+11                for (int k = 0; k < 26; k++) {
+12                    if (freq[k] > 0) {
+13                        maxFreq = Math.max(maxFreq, freq[k]);
+14                        minFreq = Math.min(minFreq, freq[k]);
+15                    }
+16                }
+17                res += (maxFreq - minFreq);
+18            }
+19        }
+20        return res;
+21    }
+22}
