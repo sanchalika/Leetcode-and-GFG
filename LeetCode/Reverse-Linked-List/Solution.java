@@ -13,13 +13,13 @@
 13        if(head==null || head.next==null){
 14            return head;
 15        }
-16        ListNode prev = null;
-17        ListNode curr = head;
+16        ListNode prev=null;
+17        ListNode curr=head;
 18        while(curr!=null){
-19            ListNode next=curr.next;
+19            ListNode front=curr.next;
 20            curr.next=prev;
 21            prev=curr;
-22            curr=next;
+22            curr=front;
 23        }
 24        return prev;
 25    }
