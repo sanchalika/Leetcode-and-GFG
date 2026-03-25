@@ -1,15 +1,16 @@
 
-
 class Solution {
-    public int sumSubarrayMins(int[] arr) {
-        final int MOD = 1000000007;
-        Stack<Integer> st = new Stack<>();
+public:
+    int sumSubarrayMins(vector<int>& arr) {
+        const int MOD = 1000000007;
+        stack<int> st;
         long sumOfMinimums = 0;
 
-        for (int i = 0; i <= arr.length; i++) {
-            while (!st.empty() && (i == arr.length || arr[st.peek()] >= arr[i])) {
-                int mid = st.pop();
-                int leftBoundary = st.empty() ? -1 : st.peek();
+        for (int i = 0; i <= arr.size(); i++) {
+            while (!st.empty() && (i == arr.size() || arr[st.top()] >= arr[i])) {
+                int mid = st.top();
+                st.pop();
+                int leftBoundary = st.empty() ? -1 : st.top();
                 int rightBoundary = i;
 
                 long count = (mid - leftBoundary) * (rightBoundary - mid) % MOD;
@@ -20,8 +21,8 @@ class Solution {
             st.push(i);
         }
 
-        return (int) sumOfMinimums;
+        return static_cast<int>(sumOfMinimums);
     }
-}
+};
 
 
