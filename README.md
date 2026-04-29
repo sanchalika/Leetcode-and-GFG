@@ -9,6 +9,7 @@ The collection of all the important dsa questions from leetcode and gfg includin
 | ------- |
 | [0930-binary-subarrays-with-sum](https://github.com/sanchalika/Leetcode-and-GFG/tree/master/0930-binary-subarrays-with-sum) |
 | [1004-max-consecutive-ones-iii](https://github.com/sanchalika/Leetcode-and-GFG/tree/master/1004-max-consecutive-ones-iii) |
+| [2452-words-within-two-edits-of-dictionary](https://github.com/sanchalika/Leetcode-and-GFG/tree/master/2452-words-within-two-edits-of-dictionary) |
 | [2463-minimum-total-distance-traveled](https://github.com/sanchalika/Leetcode-and-GFG/tree/master/2463-minimum-total-distance-traveled) |
 ## Binary Search
 |  |
@@ -34,6 +35,7 @@ The collection of all the important dsa questions from leetcode and gfg includin
 |  |
 | ------- |
 | [0424-longest-repeating-character-replacement](https://github.com/sanchalika/Leetcode-and-GFG/tree/master/0424-longest-repeating-character-replacement) |
+| [2452-words-within-two-edits-of-dictionary](https://github.com/sanchalika/Leetcode-and-GFG/tree/master/2452-words-within-two-edits-of-dictionary) |
 ## Dynamic Programming
 |  |
 | ------- |
@@ -42,4 +44,8 @@ The collection of all the important dsa questions from leetcode and gfg includin
 |  |
 | ------- |
 | [2463-minimum-total-distance-traveled](https://github.com/sanchalika/Leetcode-and-GFG/tree/master/2463-minimum-total-distance-traveled) |
+## Trie
+|  |
+| ------- |
+| [2452-words-within-two-edits-of-dictionary](https://github.com/sanchalika/Leetcode-and-GFG/tree/master/2452-words-within-two-edits-of-dictionary) |
 <!---LeetCode Topics End-->
