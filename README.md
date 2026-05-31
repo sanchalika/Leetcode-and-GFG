@@ -9,6 +9,7 @@ The collection of all the important dsa questions from leetcode and gfg includin
 | ------- |
 | [0930-binary-subarrays-with-sum](https://github.com/sanchalika/Leetcode-and-GFG/tree/master/0930-binary-subarrays-with-sum) |
 | [1004-max-consecutive-ones-iii](https://github.com/sanchalika/Leetcode-and-GFG/tree/master/1004-max-consecutive-ones-iii) |
+| [2126-destroying-asteroids](https://github.com/sanchalika/Leetcode-and-GFG/tree/master/2126-destroying-asteroids) |
 | [2452-words-within-two-edits-of-dictionary](https://github.com/sanchalika/Leetcode-and-GFG/tree/master/2452-words-within-two-edits-of-dictionary) |
 | [2463-minimum-total-distance-traveled](https://github.com/sanchalika/Leetcode-and-GFG/tree/master/2463-minimum-total-distance-traveled) |
 | [3629-minimum-jumps-to-reach-end-via-prime-teleportation](https://github.com/sanchalika/Leetcode-and-GFG/tree/master/3629-minimum-jumps-to-reach-end-via-prime-teleportation) |
@@ -45,6 +46,7 @@ The collection of all the important dsa questions from leetcode and gfg includin
 ## Sorting
 |  |
 | ------- |
+| [2126-destroying-asteroids](https://github.com/sanchalika/Leetcode-and-GFG/tree/master/2126-destroying-asteroids) |
 | [2463-minimum-total-distance-traveled](https://github.com/sanchalika/Leetcode-and-GFG/tree/master/2463-minimum-total-distance-traveled) |
 ## Trie
 |  |
@@ -62,4 +64,8 @@ The collection of all the important dsa questions from leetcode and gfg includin
 |  |
 | ------- |
 | [3629-minimum-jumps-to-reach-end-via-prime-teleportation](https://github.com/sanchalika/Leetcode-and-GFG/tree/master/3629-minimum-jumps-to-reach-end-via-prime-teleportation) |
+## Greedy
+|  |
+| ------- |
+| [2126-destroying-asteroids](https://github.com/sanchalika/Leetcode-and-GFG/tree/master/2126-destroying-asteroids) |
 <!---LeetCode Topics End-->
