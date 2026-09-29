@@ -15,16 +15,18 @@
 15 */
 16class Solution {
 17    public int maxPathSum(TreeNode root) {
-18        int maxVal[]=new int[1];
-19        maxVal[0]=Integer.MIN_VALUE;
+18        int maxVal[] = new int[1];
+19        maxVal[0] = Integer.MIN_VALUE;
 20        maxPathHelper(root, maxVal);
 21        return maxVal[0];
 22    }
-23    private int maxPathHelper(TreeNode root, int maxVal[]){
-24        if(root==null) return 0;
-25        int leftH=Math.max(0, maxPathHelper(root.left, maxVal));
-26        int rightH=Math.max(0, maxPathHelper(root.right, maxVal));
-27        maxVal[0]=Math.max(root.val+leftH+rightH, maxVal[0]);
-28        return root.val+Math.max(leftH, rightH);
-29    }
-30}
+23
+24    private int maxPathHelper(TreeNode root, int maxVal[]) {
+25        if (root == null)
+26            return 0;
+27        int leftH = Math.max(0, maxPathHelper(root.left, maxVal));
+28        int rightH = Math.max(0, maxPathHelper(root.right, maxVal));
+29        maxVal[0] = Math.max(root.val + leftH + rightH, maxVal[0]);
+30        return root.val + Math.max(leftH, rightH);
+31    }
+32}
